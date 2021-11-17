@@ -1,0 +1,16 @@
+{% extends 'mediaapp/base.html' %}
+
+  {% block title %}
+    <title>Title</title>
+  {% endblock %}
+
+  {% block first %}
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" name="dcmt">
+      <input type="submit" value="Upload">
+    </form>
+    {% if url %}
+        <h2>See Uploaded File Here:</h2><a href="{{ url }}">{{ url }}</a>
+    {% endif %}
+  {% endblock %}
